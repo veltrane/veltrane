@@ -1,0 +1,43 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/inter.woff2');
+  font-weight: 100 900;
+}
+
+:root {
+  --color-primary: #e2e3e5;
+  --color-background: #060606;
+}
+
+html {
+  font-size: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  min-height: 100svh;
+  background: var(--color-background);
+  color: var(--color-primary);
+}
+
+img {
+  pointer-events: none;
+}
+
+.vl__background {
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  inset: 0;
+  object-fit: cover;
+  z-index: -1;
+}

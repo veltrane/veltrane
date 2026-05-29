@@ -1,0 +1,96 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+
+main {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.vl__favicon {
+  width: 14%;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.vl__options {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vl__options h1 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.vl__options input {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(238, 238, 238, 0.1);
+  backdrop-filter: blur(10px);
+  color: var(--color-primary);
+  outline: 1px solid rgba(238, 238, 238, 0.2);
+  caret-color: var(--color-primary);
+  transition: outline 0.15s ease-out;
+}
+
+.vl__options input::selection {
+  background: var(--color-primary);
+  color: black;
+}
+
+.vl__options button {
+  opacity: 0.4;
+  width: 100%;
+  margin-top: 10px;
+  padding: 16px;
+  border: none;
+  border-radius: 100px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: #d4d4d4;
+  cursor: not-allowed;
+  transition: opacity 0.15s, background 0.15s;
+}
+
+.vl__options:has(input[type='email']:valid):has(input[type='password']:valid) button {
+  opacity: 1;
+  cursor: pointer;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .vl__options input:hover {
+    outline-color: rgba(238, 238, 238, 0.5);
+  }
+
+  .vl__options:has(input[type='email']:valid):has(input[type='password']:valid) button:hover {
+    background: #bebebe;
+  }
+}
+
+.vl__options input:focus {
+  outline: 2px solid rgba(238, 238, 238, 1);
+  transition: none;
+}
+
+.vl__options:has(input[type='email']:valid):has(input[type='password']:valid) button:active {
+  background: #a8a8a8;
+}
+
+@media (max-width: 425px) {
+  main {
+    width: 100%;
+  }
+}
