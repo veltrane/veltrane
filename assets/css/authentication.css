@@ -15,7 +15,6 @@ main {
 
 .vl__favicon {
   width: 14%;
-  display: block;
   margin-bottom: 20px;
 }
 
@@ -96,7 +95,34 @@ main {
   color: lightslategray;
 }
 
+.vl__code-message {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  gap: 2px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.vl__code-message p {
+  color: #8fa3b8;
+}
+
+.vl__code-message span {
+  font-weight: 600;
+}
+
 .vl__options:has(input[type='email']:valid):has(.vl__password input:not(:placeholder-shown)) .vl__button-proceed {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.vl__options:has(input[type='email']:valid) .vl__button-proceed.get-code {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.vl__options:has(input[inputmode='numeric']:valid) .vl__button-proceed.verify-code {
   opacity: 1;
   cursor: pointer;
 }
@@ -109,6 +135,10 @@ main {
   .vl__options:has(input[type='email']:valid):has(.vl__password input:not(:placeholder-shown)) .vl__button-proceed:hover {
     background: #bebebe;
   }
+
+  .vl__options:has(input[type='email']:valid) .vl__button-proceed.get-code:hover {
+    background: #bebebe;
+  }
 }
 
 .vl__options input:focus {
@@ -117,6 +147,10 @@ main {
 }
 
 .vl__options:has(input[type='email']:valid):has(.vl__password input:not(:placeholder-shown)) .vl__button-proceed:active {
+  background: #a8a8a8;
+}
+
+.vl__options:has(input[type='email']:valid) .vl__button-proceed.get-code:active {
   background: #a8a8a8;
 }
 
