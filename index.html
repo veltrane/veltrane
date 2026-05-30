@@ -5,21 +5,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Veltrane</title>
-  <link rel="icon" href="assets/image/favicon.svg">
+  <link rel="icon" href="assets/icon/favicon.svg">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/authentication.js"></script>
 </head>
 
 <body>
   <img class="vl__background" src="assets/image/background.gif" alt="Page background">
 
   <main>
-    <img class="vl__favicon" src="assets/image/favicon.svg" alt="">
+    <img class="vl__favicon" src="assets/icon/favicon.svg" alt="">
 
     <div class="vl__options">
       <h1>Log in to Veltrane</h1>
       <input type="email" placeholder="Email address" required>
-      <input type="password" placeholder="Password" required>
-      <button>Continue</button>
+      <div class="vl__password">
+        <input type="password" placeholder="Password">
+        <button>
+          <img src="assets/icon/visibility-off.svg" alt="">
+          <img src="assets/icon/visibility.svg" alt="" hidden>
+        </button>
+      </div>
+      <button class="vl__button-proceed">Continue</button>
+      <p>Don't have an account? <a href="#">Sign up</a></p>
     </div>
   </main>
 </body>

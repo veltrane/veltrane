@@ -1,7 +1,7 @@
 body {
   display: flex;
   align-items: center;
-  justify-self: center;
+  justify-content: center;
 }
 
 main {
@@ -51,10 +51,36 @@ main {
   color: black;
 }
 
-.vl__options button {
+.vl__password {
+  width: 100%;
+  position: relative;
+}
+
+.vl__password input {
+  padding-right: 45px;
+}
+
+.vl__password button {
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  display: none;
+  border: none;
+  border-radius: 100px;
+  background: none;
+  cursor: pointer;
+}
+
+.vl__password input:not(:placeholder-shown)+button {
+  display: flex;
+}
+
+.vl__button-proceed {
   opacity: 0.4;
   width: 100%;
-  margin-top: 10px;
+  margin-block: 10px;
   padding: 16px;
   border: none;
   border-radius: 100px;
@@ -65,7 +91,12 @@ main {
   transition: opacity 0.15s, background 0.15s;
 }
 
-.vl__options:has(input[type='email']:valid):has(input[type='password']:valid) button {
+.vl__options p {
+  font-size: 0.9rem;
+  color: lightslategray;
+}
+
+.vl__options:has(input[type='email']:valid):has(.vl__password input:not(:placeholder-shown)) .vl__button-proceed {
   opacity: 1;
   cursor: pointer;
 }
@@ -75,7 +106,7 @@ main {
     outline-color: rgba(238, 238, 238, 0.5);
   }
 
-  .vl__options:has(input[type='email']:valid):has(input[type='password']:valid) button:hover {
+  .vl__options:has(input[type='email']:valid):has(.vl__password input:not(:placeholder-shown)) .vl__button-proceed:hover {
     background: #bebebe;
   }
 }
@@ -85,7 +116,7 @@ main {
   transition: none;
 }
 
-.vl__options:has(input[type='email']:valid):has(input[type='password']:valid) button:active {
+.vl__options:has(input[type='email']:valid):has(.vl__password input:not(:placeholder-shown)) .vl__button-proceed:active {
   background: #a8a8a8;
 }
 

@@ -1,15 +1,20 @@
 @font-face {
   font-family: 'Inter';
-  src: url('/assets/font/inter.woff2');
+  src: url('../font/inter.woff2');
   font-weight: 100 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Inter';
-  src: url('/assets/font/inter-italic.woff2');
+  src: url('../font/inter-italic.woff2');
   font-weight: 100 900;
   font-style: italic;
+}
+
+@font-face {
+  font-family: 'Noto Color Emoji';
+  src: url('../font/noto-color-emoji.woff2');
 }
 
 :root {
@@ -25,7 +30,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', 'Noto Color Emoji', sans-serif;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
 }
@@ -38,6 +43,22 @@ body {
 
 img {
   pointer-events: none;
+}
+
+a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+a:active {
+  text-decoration: underline;
 }
 
 .vl__background {
