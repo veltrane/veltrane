@@ -3,6 +3,14 @@ const API = 'https://veltrane-backend-production.up.railway.app'
 const errorEl = document.querySelector('.vl__error')
 const setError = (msg) => { if (errorEl) errorEl.textContent = msg }
 
+const setLoading = (btn, loading) => {
+  const span = btn.querySelector('span')
+  const loader = btn.querySelector('.vl__proceed-loader')
+  span.hidden = loading
+  loader.style.display = loading ? 'block' : 'none'
+  btn.style.pointerEvents = loading ? 'none' : ''
+}
+
 const passwordVisibility = document.querySelector('.vl__password button')
 const passwordInput = document.querySelector('.vl__password input')
 
@@ -32,6 +40,7 @@ if (getCodeBtn) {
   const emailInput = document.querySelector('input[type="email"]')
 
   getCodeBtn.addEventListener('click', async () => {
+    setLoading(getCodeBtn, true)
     const email = emailInput.value
     const res = await fetch(`${API}/api/auth/send-code`, {
       method: 'POST',
@@ -43,6 +52,7 @@ if (getCodeBtn) {
       sessionStorage.setItem('pendingEmail', email)
       window.location.href = 'verification.html'
     } else {
+      setLoading(getCodeBtn, false)
       setError(data.error)
     }
   })
@@ -61,6 +71,7 @@ if (verifyBtn) {
   })
 
   verifyBtn.addEventListener('click', async () => {
+    setLoading(verifyBtn, true)
     const res = await fetch(`${API}/api/auth/verify-code`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -70,6 +81,7 @@ if (verifyBtn) {
     if (res.ok) {
       window.location.href = 'onboard.html'
     } else {
+      setLoading(verifyBtn, false)
       setError(data.error)
     }
   })
@@ -114,6 +126,7 @@ if (avatarBtn) {
 const createAccountBtn = document.querySelector('.vl__button-proceed.create-account')
 if (createAccountBtn) {
   createAccountBtn.addEventListener('click', async () => {
+    setLoading(createAccountBtn, true)
     const email = sessionStorage.getItem('pendingEmail')
     const username = nameInput.value.trim()
     const password = passwordInput.value
@@ -132,6 +145,7 @@ if (createAccountBtn) {
       sessionStorage.removeItem('pendingAvatar')
       window.location.href = '../index.html'
     } else {
+      setLoading(createAccountBtn, false)
       setError(data.error)
     }
   })
@@ -142,6 +156,7 @@ if (loginBtn) {
   const emailInput = document.querySelector('input[type="email"]')
 
   loginBtn.addEventListener('click', async () => {
+    setLoading(loginBtn, true)
     const res = await fetch(`${API}/api/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -152,8 +167,9 @@ if (loginBtn) {
     const data = await res.json()
 
     if (res.ok) {
-      window.location.href = 'chat.html'
+      window.location.href = 'pages/chat.html'
     } else {
+      setLoading(loginBtn, false)
       setError(data.error)
     }
   })
