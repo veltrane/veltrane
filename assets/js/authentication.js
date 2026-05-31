@@ -1,4 +1,4 @@
-const API = 'http://localhost:3000'
+const API = 'https://veltrane-backend-production.up.railway.app'
 
 const errorEl = document.querySelector('.vl__error')
 const setError = (msg) => { if (errorEl) errorEl.textContent = msg }
