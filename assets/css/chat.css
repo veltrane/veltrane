@@ -1,0 +1,68 @@
+@import url(global.css);
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 15px 5px;
+  background: #0f0e1e;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.1);
+}
+
+.vl__user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.vl__user-profile img {
+  width: 45px;
+  height: 45px;
+  border-radius: 100px;
+  object-fit: cover;
+}
+
+.vl__chat-options {
+  display: flex;
+}
+
+.vl__chat-options button {
+  width: 45px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.vl__chat-options button img {
+  height: 100%;
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .vl__chat-options button:hover {
+    transform: scale(1.1);
+  }
+}
+
+.vl__chat-options button:active {
+  transform: scale(0.9);
+}
+
+.vl__chat {
+  flex: 1;
+  background: blue;
+}
