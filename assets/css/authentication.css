@@ -237,9 +237,9 @@ main {
 .vl__error {
   opacity: 0;
   width: 100%;
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: violet;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: lightcoral;
   transition: opacity 0.15s;
 }
 
