@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veltrane</title>
+  <link rel="icon" href="../assets/icon/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script defer src="../assets/js/authentication.js"></script>
+</head>
+
+<body>
+  <img class="vl__background" src="../assets/image/background.gif" alt="Page background">
+
+  <main>
+    <div class="vl__profile-picture">
+      <img src="../assets/icon/default-avatar.png" alt="">
+      <button>
+        <img src="../assets/icon/edit.svg" alt="">
+      </button>
+      <input type="file" accept="image/*" hidden>
+    </div>
+
+    <div class="vl__options">
+      <input class="vl__display-name" type="text" maxlength="30" placeholder="Display name" required title="">
+      <div class="vl__password">
+        <input type="password" maxlength="30" placeholder="Create password">
+        <button>
+          <img src="../assets/icon/visibility-off.svg" alt="">
+          <img src="../assets/icon/visibility.svg" alt="" hidden>
+        </button>
+      </div>
+      <button class="vl__button-proceed create-account">Finish</button>
+    </div>
+  </main>
+</body>
+
+</html>

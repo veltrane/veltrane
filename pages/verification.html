@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Veltrane</title>
+  <link rel="icon" href="../assets/icon/favicon.svg">
   <link rel="stylesheet" href="../assets/css/style.css">
+  <script defer src="../assets/js/authentication.js"></script>
 </head>
 
 <body>
@@ -19,7 +21,7 @@
       <div class="vl__code-message">
         <p>We've sent you a temporary login code.</p>
         <p>Please check your inbox at</p>
-        <span>armanlikespomegranate@gmail.com</span>
+        <span></span>
       </div>
       <input type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" placeholder="Enter code"
         autocomplete="one-time-code" required>
@@ -27,14 +29,6 @@
       <p>Already have an account? <a href="../index.html">Log in</a></p>
     </div>
   </main>
-
-  <script>
-    const codeInput = document.querySelector('input[inputmode="numeric"]');
-
-    codeInput.addEventListener('input', () => {
-      codeInput.value = codeInput.value.replace(/\D/g, '');
-    });
-  </script>
 </body>
 
 </html>

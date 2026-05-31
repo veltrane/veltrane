@@ -18,6 +18,36 @@ main {
   margin-bottom: 20px;
 }
 
+.vl__profile-picture {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  margin-bottom: 25px;
+  border-radius: 100px;
+}
+
+.vl__profile-picture>img {
+  width: 100%;
+  height: 100%;
+  border: 3px solid var(--color-primary);
+  border-radius: 100px;
+  object-fit: cover;
+}
+
+.vl__profile-picture button {
+  position: absolute;
+  right: -10px;
+  bottom: 0;
+  display: flex;
+  padding: 5px;
+  border: 2px solid var(--color-primary);
+  border-radius: 100px;
+  background: rgba(238, 238, 238, 0.1);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: backdrop-filter 0.15s;
+}
+
 .vl__options {
   width: 80%;
   display: flex;
@@ -29,7 +59,6 @@ main {
 
 .vl__options h1 {
   font-size: 1.3rem;
-  margin-bottom: 10px;
 }
 
 .vl__options input {
@@ -43,6 +72,14 @@ main {
   outline: 1px solid rgba(238, 238, 238, 0.2);
   caret-color: var(--color-primary);
   transition: outline 0.15s ease-out;
+}
+
+.vl__options>input {
+  margin-top: 10px;
+}
+
+.vl__options input::placeholder {
+  color: rgba(238, 238, 238, 0.5);
 }
 
 .vl__options input::selection {
@@ -92,13 +129,12 @@ main {
 
 .vl__options p {
   font-size: 0.9rem;
-  color: lightslategray;
+  color: #8fa3b8;
 }
 
 .vl__code-message {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
   gap: 2px;
   text-align: center;
   font-size: 0.9rem;
@@ -127,7 +163,16 @@ main {
   cursor: pointer;
 }
 
+.vl__options:has(.vl__display-name:valid):has(.vl__password input:valid) .vl__button-proceed.create-account {
+  opacity: 1;
+  cursor: pointer;
+}
+
 @media (hover: hover) and (pointer: fine) {
+  .vl__profile-picture button:hover {
+    backdrop-filter: blur(3px);
+  }
+
   .vl__options input:hover {
     outline-color: rgba(238, 238, 238, 0.5);
   }
