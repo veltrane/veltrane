@@ -116,7 +116,7 @@ main {
 .vl__button-proceed {
   opacity: 0.4;
   width: 100%;
-  margin-block: 10px;
+  margin-bottom: 10px;
   padding: 16px;
   border: none;
   border-radius: 100px;
@@ -127,7 +127,7 @@ main {
   transition: opacity 0.15s, background 0.15s;
 }
 
-.vl__options p {
+.vl__options p:last-of-type {
   font-size: 0.9rem;
   color: #8fa3b8;
 }
@@ -197,6 +197,19 @@ main {
 
 .vl__options:has(input[type='email']:valid) .vl__button-proceed.get-code:active {
   background: #a8a8a8;
+}
+
+.vl__error {
+  opacity: 0;
+  width: 100%;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: violet;
+  transition: opacity 0.15s;
+}
+
+.vl__error:not(:empty) {
+  opacity: 1;
 }
 
 @media (max-width: 425px) {

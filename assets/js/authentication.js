@@ -1,5 +1,8 @@
 const API = 'http://localhost:3000'
 
+const errorEl = document.querySelector('.vl__error')
+const setError = (msg) => { if (errorEl) errorEl.textContent = msg }
+
 const passwordVisibility = document.querySelector('.vl__password button')
 const passwordInput = document.querySelector('.vl__password input')
 
@@ -40,14 +43,14 @@ if (getCodeBtn) {
       sessionStorage.setItem('pendingEmail', email)
       window.location.href = 'verification.html'
     } else {
-      alert(data.error)
+      setError(data.error)
     }
   })
 }
 
 const verifyBtn = document.querySelector('.vl__button-proceed.verify-code')
 if (verifyBtn) {
-  const codeInput = document.querySelector('input[inputmode="numeric"]')
+  const codeInput = document.querySelector('input')
   const email = sessionStorage.getItem('pendingEmail')
 
   const emailDisplay = document.querySelector('.vl__code-message span')
@@ -67,7 +70,7 @@ if (verifyBtn) {
     if (res.ok) {
       window.location.href = 'onboard.html'
     } else {
-      alert(data.error)
+      setError(data.error)
     }
   })
 }
@@ -93,7 +96,7 @@ if (avatarBtn) {
     const file = avatarInput.files[0]
     if (!file) return
     if (file.size > 5 * 1024 * 1024) {
-      alert('Image must be under 5MB')
+      setError('Image must be under 5MB')
       avatarInput.value = ''
       return
     }
@@ -129,7 +132,29 @@ if (createAccountBtn) {
       sessionStorage.removeItem('pendingAvatar')
       window.location.href = '../index.html'
     } else {
-      alert(data.error)
+      setError(data.error)
+    }
+  })
+}
+
+const loginBtn = document.querySelector('.vl__button-proceed.login')
+if (loginBtn) {
+  const emailInput = document.querySelector('input[type="email"]')
+
+  loginBtn.addEventListener('click', async () => {
+    const res = await fetch(`${API}/api/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ email: emailInput.value, password: passwordInput.value })
+    })
+
+    const data = await res.json()
+
+    if (res.ok) {
+      window.location.href = 'chat.html'
+    } else {
+      setError(data.error)
     }
   })
 }
