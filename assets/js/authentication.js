@@ -3,6 +3,8 @@ const API = 'https://veltrane-backend-production.up.railway.app'
 const errorEl = document.querySelector('.vl__error')
 const setError = (msg) => { if (errorEl) errorEl.textContent = msg }
 
+const isActive = (btn) => parseFloat(getComputedStyle(btn).opacity) === 1
+
 const setLoading = (btn, loading) => {
   const span = btn.querySelector('span')
   const loader = btn.querySelector('.vl__proceed-loader')
@@ -40,6 +42,7 @@ if (getCodeBtn) {
   const emailInput = document.querySelector('input[type="email"]')
 
   getCodeBtn.addEventListener('click', async () => {
+    if (!isActive(getCodeBtn)) return
     setLoading(getCodeBtn, true)
     const email = emailInput.value
     const res = await fetch(`${API}/api/auth/send-code`, {
@@ -71,6 +74,7 @@ if (verifyBtn) {
   })
 
   verifyBtn.addEventListener('click', async () => {
+    if (!isActive(verifyBtn)) return
     setLoading(verifyBtn, true)
     const res = await fetch(`${API}/api/auth/verify-code`, {
       method: 'POST',
@@ -126,6 +130,7 @@ if (avatarBtn) {
 const createAccountBtn = document.querySelector('.vl__button-proceed.create-account')
 if (createAccountBtn) {
   createAccountBtn.addEventListener('click', async () => {
+    if (!isActive(createAccountBtn)) return
     setLoading(createAccountBtn, true)
     const email = sessionStorage.getItem('pendingEmail')
     const username = nameInput.value.trim()
@@ -156,6 +161,7 @@ if (loginBtn) {
   const emailInput = document.querySelector('input[type="email"]')
 
   loginBtn.addEventListener('click', async () => {
+    if (!isActive(loginBtn)) return
     setLoading(loginBtn, true)
     const res = await fetch(`${API}/api/auth/login`, {
       method: 'POST',
