@@ -148,7 +148,7 @@ main {
   font-weight: 600;
 }
 
-.vl__options:has(input[type='email']:valid):has(.vl__password input:not(:placeholder-shown)) .vl__button-proceed {
+.vl__options:has(input[type='email']:valid):has(.vl__password input:valid) .vl__button-proceed {
   opacity: 1;
   cursor: pointer;
 }
@@ -177,11 +177,15 @@ main {
     outline-color: rgba(238, 238, 238, 0.5);
   }
 
-  .vl__options:has(input[type='email']:valid):has(.vl__password input:not(:placeholder-shown)) .vl__button-proceed:hover {
+  .vl__options:has(input[type='email']:valid):has(.vl__password input:valid) .vl__button-proceed:hover {
     background: #bebebe;
   }
 
   .vl__options:has(input[type='email']:valid) .vl__button-proceed.get-code:hover {
+    background: #bebebe;
+  }
+
+  .vl__options:has(input[inputmode='numeric']:valid) .vl__button-proceed.verify-code:hover {
     background: #bebebe;
   }
 }
@@ -191,11 +195,15 @@ main {
   transition: none;
 }
 
-.vl__options:has(input[type='email']:valid):has(.vl__password input:not(:placeholder-shown)) .vl__button-proceed:active {
+.vl__options:has(input[type='email']:valid):has(.vl__password input:valid) .vl__button-proceed:active {
   background: #a8a8a8;
 }
 
 .vl__options:has(input[type='email']:valid) .vl__button-proceed.get-code:active {
+  background: #a8a8a8;
+}
+
+.vl__options:has(input[inputmode='numeric']:valid) .vl__button-proceed.verify-code:active {
   background: #a8a8a8;
 }
 
