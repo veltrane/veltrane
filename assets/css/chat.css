@@ -66,3 +66,26 @@ header {
   flex: 1;
   background: blue;
 }
+
+.vl__message {
+  display: flex;
+  background: red;
+  height: 45px;
+  border: 1px solid var(--color-primary);
+  border-radius: 100px;
+  padding-inline: 10px;
+}
+
+textarea {
+  flex: 1;
+  background: none;
+  resize: none;
+  overflow: hidden;
+  padding-block: 10px;
+}
+
+.vl__message button {
+  display: flex;
+  background: none;
+  border: none;
+}
