@@ -1,4 +1,4 @@
-# Third-Party Licenses
+# Third-Party Notices
 
 This project includes the following third-party assets, each governed by their respective licenses.
 
