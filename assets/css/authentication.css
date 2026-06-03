@@ -80,10 +80,6 @@ body {
   margin-top: 10px;
 }
 
-.vl__options input::placeholder {
-  color: rgba(238, 238, 238, 0.5);
-}
-
 .vl__options input::selection {
   background: var(--color-primary);
   color: black;

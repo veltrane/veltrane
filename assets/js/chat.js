@@ -6,5 +6,7 @@ messageInput.addEventListener('input', () => {
 })
 
 messageInput.addEventListener('keydown', (e) => {
+  const isMobile = window.innerWidth <= 425
+  if (isMobile) return
   if (e.key === 'Enter' && !e.shiftKey) e.preventDefault()
 })

@@ -19,7 +19,6 @@
 
 :root {
   --color-primary: #e2e3e5;
-  --color-background: #060606;
 }
 
 html {
@@ -37,8 +36,12 @@ html {
 
 body {
   min-height: 100svh;
-  background: var(--color-background);
+  background: black;
   color: var(--color-primary);
+}
+
+::placeholder {
+  color: rgba(238, 238, 238, 0.5);
 }
 
 ::selection {
@@ -54,6 +57,10 @@ a {
   color: var(--color-primary);
   font-weight: 600;
   text-decoration: none;
+}
+
+button {
+  cursor: pointer;
 }
 
 @media (hover: hover) and (pointer: fine) {

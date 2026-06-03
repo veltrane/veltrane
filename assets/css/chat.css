@@ -45,7 +45,6 @@ header {
   justify-content: center;
   border: none;
   background: none;
-  cursor: pointer;
   transition: transform 0.15s;
 }
 
@@ -53,28 +52,18 @@ header {
   height: 100%;
 }
 
-@media (hover:hover) and (pointer:fine) {
-  .vl__chat-options button:hover {
-    transform: scale(1.1);
-  }
-}
-
-.vl__chat-options button:active {
-  transform: scale(0.9);
-}
-
 .vl__chat {
   flex: 1;
-  /* background: blue; */
 }
 
 .vl__message {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 45px;
+  height: 50px;
   margin: 15px 20px;
   padding-inline: 10px;
+  gap: 10px;
   border: 1px solid rgba(238, 238, 238, 0.1);
   border-radius: 100px;
   background: rgba(76, 37, 44, 0.5);
@@ -83,30 +72,95 @@ header {
 
 textarea {
   flex: 1;
-  height: 100%;
-  margin-inline: 10px;
   background: none;
   border: none;
   outline: none;
   resize: none;
   overflow: hidden;
   font-size: 0.9rem;
-  /* font-weight: 300; */
+  line-height: 1.5;
   caret-color: var(--color-primary);
   color: var(--color-primary);
 }
 
+.vl__message-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
 .vl__message button {
-  width: 36px;
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: none;
   border: none;
-  cursor: pointer;
+  transition: transform 0.15s;
 }
 
-.vl__message button img {
+.vl__message>button:last-child {
+  width: 50px;
+  height: 80%;
+  display: none;
+  background: #ffc0cb;
+  border-radius: 100px;
+  padding-left: 3px;
+}
+
+.vl__message button img,
+.vl__message button svg {
   height: 90%;
+}
+
+.vl__message>button:last-child svg {
+  color: #5c2d3a;
+}
+
+.vl__message:has(textarea:not(:placeholder-shown)) .vl__message-more {
+  display: none;
+}
+
+.vl__message:has(textarea:not(:placeholder-shown))>button:last-child {
+  display: flex;
+}
+
+.vl__message:has(textarea:not(:placeholder-shown)) {
+  padding-right: 5px;
+}
+
+@media (hover:hover) and (pointer:fine) {
+  button:hover {
+    transform: scale(1.05);
+  }
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 425px) {
+  header {
+    height: 60px;
+  }
+
+  .vl__user-profile {
+    font-size: 0.95rem;
+  }
+
+  .vl__user-profile img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .vl__chat-options button {
+    width: 40px;
+    height: 25px;
+  }
+
+  .vl__message {
+    height: 50px;
+    margin: 10px;
+  }
 }
