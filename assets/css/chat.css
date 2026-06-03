@@ -12,7 +12,8 @@ header {
   align-items: center;
   justify-content: space-between;
   padding-inline: 15px 5px;
-  background: #0f0e1e;
+  background: rgba(76, 37, 44, 0.5);
+  backdrop-filter: blur(5px);
   border-bottom: 1px solid rgba(238, 238, 238, 0.1);
 }
 
@@ -64,28 +65,48 @@ header {
 
 .vl__chat {
   flex: 1;
-  background: blue;
+  /* background: blue; */
 }
 
 .vl__message {
   display: flex;
-  background: red;
+  align-items: center;
+  justify-content: center;
   height: 45px;
-  border: 1px solid var(--color-primary);
-  border-radius: 100px;
+  margin: 15px 20px;
   padding-inline: 10px;
+  border: 1px solid rgba(238, 238, 238, 0.1);
+  border-radius: 100px;
+  background: rgba(76, 37, 44, 0.5);
+  backdrop-filter: blur(10px);
 }
 
 textarea {
   flex: 1;
+  height: 100%;
+  margin-inline: 10px;
   background: none;
+  border: none;
+  outline: none;
   resize: none;
   overflow: hidden;
-  padding-block: 10px;
+  font-size: 0.9rem;
+  /* font-weight: 300; */
+  caret-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .vl__message button {
+  width: 36px;
+  height: 30px;
   display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
+  cursor: pointer;
+}
+
+.vl__message button img {
+  height: 90%;
 }
